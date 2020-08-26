@@ -17,15 +17,12 @@ I assume you understand how Test-Driven Development (TDD) and Continuous Integra
 
 ## **Introduction**
 
-Unreal Engine provides a testing suite inside it's Automation Framework, but it's tedious (and consumes a lot of time) to write a test, build the project, open the editor,
- run the tests and see if they pass or fail.
+Unreal Engine provides a testing suite inside it's Automation Framework, but it's tedious (and consumes a lot of time) to write a test, build the project, open the editor, run the tests and see if they pass or fail.
 
-There's a way to do the tests more efficiently (you still have to create a class from within the editor to use it as a test class so the engine 'sees' it),
- without having to wait to the editor and check the results for yourself.
+There's a way to do the tests more efficiently (you still have to create a class from within the editor to use it as a test class so the engine 'sees' it), without having to wait to the editor and check the results for yourself.
 
 That's when you need Jenkins, and automation program that triggers a pipeline execution via an event.
-A pipeline is a configuration of a workspace environment, a series of stages, each of them consisting of a series of steps, and finally things that you do after (post) the
- pipeline is executed.
+A pipeline is a configuration of a workspace environment, a series of stages, each of them consisting of a series of steps, and finally things that you do after (post) the pipeline is executed.
 
 Inside that pipeline we're going to declare how to build the project, run our tests, check if they fail or pass and also which parts aren't tested (via code coverage).
 
@@ -43,8 +40,7 @@ Inside that pipeline we're going to declare how to build the project, run our te
 10) The Pipeline shows build status and tests reports.
 11) Jenkins notifies Github the results of the pipeline build.
 
-Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every
- appication that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
+Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every appication that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
 
 This problem is a source of some headaches in the beginning, but you'll become accustomed to it.
 
