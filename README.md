@@ -50,7 +50,7 @@ First Time Steps:
 1) Create Unreal Project.
 2) Add .gitignore.
 3) Add Jenkinsfile and push changes.
-4) Create a class (with no parent) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
+4) Create a class (without parent, None) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
 5) Create tests.
 6) In Jenkins Install:
   -Blue Ocean plugin (if you want a prettier Jenkins).
