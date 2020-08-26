@@ -6,12 +6,12 @@ I didn't make anything special, just read what others have done and used it here
 
 ## **Requirements**
 
-  - Unreal Engine 4 (4.22).
-  - git.
-  - github.
-  - ngrok.
-  - Jenkins.
-  - OpencppCodeCoverage.
+- Unreal Engine 4 (4.22).
+- git.
+- github.
+- ngrok.
+- Jenkins.
+- OpencppCodeCoverage.
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works.
 
@@ -48,7 +48,7 @@ Looks easy, right? The only problem is understanding that Jenkins is meant to be
 
 This problem is a source of some headaches in the beginning, but you'll become accustomed to it.
 
-## **First Time Steps:**
+## **First Time Steps**
 
 0) Install required programs.
 1) Create Unreal Project.
@@ -64,12 +64,12 @@ This problem is a source of some headaches in the beginning, but you'll become a
       - Slack plugin and configure it (if you want slack notifications).
 7) Create Jenkins Multibranch Pipeline project.
 8) Create a tunnel via ngrok to the Jenkins port (default is 8080).
-9) Add a webhook to the github repository referencing the http given by ngrok (don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!).
+9) Add a webhook to the github repository referencing the http given by ngrok (**don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!**).
 10) Push to see the build trigger in Jenkins.
 
 It would be nice to add github checks to pull requests, but it's not possible with a free account.
 
-## **Jenkinsfile:**
+## **Jenkinsfile**
 
 - I use node 'master' because I have only one pc for Jenkins.
 - I use a custom workspace (and at the beginning of the disk) because the Unreal Build Tool has problems with long filenames.
@@ -84,7 +84,7 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 - I do a git hard reset and git clean to clean the workspace after everything has been done. This way, if the repository it's something big, only the changes are downloaded and thus, we save bandwidth.
 - Thanks to Michael Delva for his test report parser method found in his blogspot: https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html, I used it almost with no changes.
 
-## **Resources:**
+## **Resources**
 
 ### TDD and CI
 
