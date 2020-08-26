@@ -69,7 +69,7 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 Jenkinsfile:
 
 - I use node 'master' because I have only one pc for Jenkins.
-- I use a custom workspace (and at the beginning of the disk because the Unreal Build Tool has problems with long filenames).
+- I use a custom workspace (and at the beginning of the disk) because the Unreal Build Tool has problems with long filenames.
 - The environment variables are used as parameters, to avoid hardcoding.
 - BuildWithoutCooking.bat it's used to build the project. I don't use cooking because I think that process should be made when in production.
 - It's not necessary to create the Visual Studio files because we don't do anything with Visual Studio, we run the tests using the Unreal Automation Tool.
@@ -78,4 +78,4 @@ Jenkinsfile:
 - The CodeCoverageReport will be used by Cobertura to display the code coverage.
 - In some places, slackSend is used to send messages to a Slack Workspace. The channel name is only used if you want to override the one used in the Slack plugin configuration.
 - I do a git hard reset and git clean to clean the workspace after everything has been done. This way, if the repository it's something big, only the changes are downloaded and thus, we save bandwidth.
-- Thanks to Michael Delva for his test report parser method found in his blogspot: https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html I used it almost with no changes.
+- Thanks to Michael Delva for his test report parser method found in his blogspot: https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html, I used it almost with no changes.
