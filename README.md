@@ -151,3 +151,6 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 - https://unrealcontainers.com/docs/use-cases/continuous-integration
 
 (more to come, maybe)
+
+Alberto Mikulan.
+alberto.mikulan@gmail.com
