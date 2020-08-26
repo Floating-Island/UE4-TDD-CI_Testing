@@ -46,6 +46,10 @@ This problem is a source of some headaches in the beginning, but you'll become a
 
 Steps:
 
+1) Create Unreal Project.
+2) Add .gitignore.
+3) Add Jenkinsfile.
+
 (to do)
 
 
