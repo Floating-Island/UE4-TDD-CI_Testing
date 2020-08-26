@@ -49,6 +49,7 @@ Steps:
 1) Create Unreal Project.
 2) Add .gitignore.
 3) Add Jenkinsfile.
+4) Create a class (with no parent) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
 
 (to do)
 
