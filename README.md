@@ -53,7 +53,7 @@ First Time Steps:
 4) Create a class (without parent, None) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
 5) Create tests.
 6) In Jenkins Install:
-  -Blue Ocean plugin (if you want a prettier Jenkins).
+  -Blue Ocean plugin (there're plugins necessary with it and if you want a prettier Jenkins).
   -GitHub plugin (for pull requests).
   -HTTP request plugin (mm don't know if necessary, but it was some time ago).
   -Cobertura plugin (for code coverage).
