@@ -55,11 +55,11 @@ First Time Steps:
 4) Create a class (without parent, None) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
 5) Create tests.
 6) In Jenkins Install:
-  -Blue Ocean plugin (there're plugins necessary with it and if you want a prettier Jenkins).
-  -GitHub plugin (for pull requests).
-  -HTTP request plugin (mm don't know if necessary, but it was some time ago).
-  -Cobertura plugin (for code coverage).
-  -Slack plugin and configure it (if you want slack notifications).
+  - Blue Ocean plugin (there're plugins necessary with it and if you want a prettier Jenkins).
+  - GitHub plugin (for pull requests).
+  - HTTP request plugin (mm don't know if necessary, but it was some time ago).
+  - Cobertura plugin (for code coverage).
+  - Slack plugin and configure it (if you want slack notifications).
 7) Create Jenkins Multibranch Pipeline project.
 8) Create a tunnel via ngrok to the Jenkins port (default is 8080).
 9) Add a webhook to the github repository referencing the http given by ngrok (don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!).
