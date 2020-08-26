@@ -15,6 +15,7 @@
 
 //It's nice if the prettyname follows a pattern like: Game.Unit.ClassToTest.TestName
 //TestName should express what you expect from a test given a scenario.
+//Pay attention to the automation flags because they're needed to run the tests without UI errors.
 
 
 //a test
