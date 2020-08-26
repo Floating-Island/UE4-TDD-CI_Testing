@@ -46,21 +46,21 @@ This problem is a source of some headaches in the beginning, but you'll become a
 
 First Time Steps:
 
-0)Install required programs.
+0) Install required programs.
 1) Create Unreal Project.
 2) Add .gitignore.
 3) Add Jenkinsfile and push changes.
-4) Create a class (with no parent) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
+4) Create a class (without parent, None) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
 5) Create tests.
 6) In Jenkins Install:
-  -Blue Ocean plugin (if you want a prettier Jenkins).
+  -Blue Ocean plugin (there're plugins necessary with it and if you want a prettier Jenkins).
   -GitHub plugin (for pull requests).
   -HTTP request plugin (mm don't know if necessary, but it was some time ago).
   -Cobertura plugin (for code coverage).
   -Slack plugin and configure it (if you want slack notifications).
 7) Create Jenkins Multibranch Pipeline project.
 8) Create a tunnel via ngrok to the Jenkins port (default is 8080).
-9) Add a webhook to the github repository referencing the http given by ngrok.
+9) Add a webhook to the github repository referencing the http given by ngrok (don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!).
 10) Push to see the build trigger in Jenkins.
 
 (to do)
