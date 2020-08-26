@@ -15,7 +15,7 @@ I didn't make anything special, just read what others have done and used it here
 - Jenkins.
 - OpencppCodeCoverage.
 
-I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works.
+I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works. If not, check the resources section, it's a nice place to start, and you can try tests with this project.
 
 ## **Introduction**
 
