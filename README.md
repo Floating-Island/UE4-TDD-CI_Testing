@@ -80,77 +80,92 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 - The CodeCoverageReport will be used by Cobertura to display the code coverage.
 - In some places, slackSend is used to send messages to a Slack Workspace. The channel name is only used if you want to override the one used in the Slack plugin configuration.
 - I do a git hard reset and git clean to clean the workspace after everything has been done. This way, if the repository it's something big, only the changes are downloaded and thus, we save bandwidth.
-- Thanks to Michael Delva for his test report parser method found in his blogspot: https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html, I used it almost with no changes.
+- Thanks to Michael Delva for his test report parser method found in his [blogspot](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html), I used it almost with no changes.
 
 ## **Resources**
 
-### TDD and CI
+The following is a list of resources that helped me while doing this project.
 
-- https://en.wikipedia.org/wiki/Test-driven_development
-- https://en.wikipedia.org/wiki/Continuous_integration
-- https://martinfowler.com/bliki/SelfTestingCode.html
-- https://martinfowler.com/articles/continuousIntegration.html
-- https://www.thoughtworks.com/continuous-integration
-- https://martinfowler.com/bliki/ContinuousDelivery.html?utm_source=Codeship&utm_medium=CI-Guide
-- https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
-- https://martinfowler.com/articles/branching-patterns.html
+### TDD
+
+- [Test-Driven Development - Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development)
+- [Self Testing Code - Martin Fowler](https://martinfowler.com/bliki/SelfTestingCode.html)
+
+### CI
+
+- [Continuous Integration - Wikipedia](https://en.wikipedia.org/wiki/Continuous_integration)
+- [Continuous Integration - Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html)
+- [Continuous Integration - Thoughtworks](https://www.thoughtworks.com/continuous-integration)
+- [Continuous Delivery - Martin Fowler](https://martinfowler.com/bliki/ContinuousDelivery.html?utm_source=Codeship&utm_medium=CI-Guide)
+- [Continuous Integration vs. Continuous Delivery vs. Continuous Deployment - Atlassian](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
+- [Extra: Branching Patterns - Martin Fowler](https://martinfowler.com/articles/branching-patterns.html)
 
 ### Jenkins
 
-- https://superuser.com/questions/879392/how-force-jenkins-to-show-ui-always-in-english
-- https://devopscube.com/jenkins-build-trigger-github-pull-request/
-- https://devopscube.com/jenkins-multibranch-pipeline-tutorial/
-- https://www.jenkins.io/doc/book/pipeline/
-- https://www.jenkins.io/doc/book/pipeline/syntax/
-- https://www.jenkins.io/doc/book/pipeline/syntax/#agent
-- https://www.jenkins.io/doc/pipeline/examples/
-- https://www.jenkins.io/doc/book/pipeline/jenkinsfile/
-- https://stackoverflow.com/questions/27453156/jenkins-how-to-print-the-contents-of-a-text-file-to-the-build-log
-- https://stackoverflow.com/questions/42050626/jenkins-pipeline-agent-vs-node
-- https://stackoverflow.com/questions/54020776/how-do-i-make-jenkins-pipeline-run-in-any-agent-machine-but-never-master
-- https://support.cloudbees.com/hc/en-us/articles/115000733051-Why-our-batch-process-works-locally-and-not-from-Jenkins-
-- https://stackoverflow.com/questions/38276341/jenkins-ci-pipeline-scripts-not-permitted-to-use-method-groovy-lang-groovyobject
-- https://groovy-lang.org/processing-xml.html
-- https://stackoverflow.com/questions/33912964/jenkins-workflow-plugin-and-groovy-libs
+- [How force Jenkins to show UI always in English? Issue - Superuser - sobi3ch](https://superuser.com/questions/879392/how-force-jenkins-to-show-ui-always-in-english)
+- [Jenkins Automated Build Trigger On Github Pull Request - DevOpsCube](https://devopscube.com/jenkins-build-trigger-github-pull-request/)
+- [Jenkins Multibranch Pipeline Tutorial For Beginners - DevOpsCube](https://devopscube.com/jenkins-multibranch-pipeline-tutorial/)
+- [Pipeline - Jenkins](https://www.jenkins.io/doc/book/pipeline/)
+- [Pipeline Syntax - Jenkins](https://www.jenkins.io/doc/book/pipeline/syntax/)
+- [Pipeline Syntax: Agent - Jenkins](https://www.jenkins.io/doc/book/pipeline/syntax/#agent)
+- [Pipeline Examples - Jenkins](https://www.jenkins.io/doc/pipeline/examples/)
+- [Using a Jenkinsfile - Jenkins](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/)
+- [Jenkins : how to print the contents of a text file to the build log? Issue - StackOverflow - AnneTheAgile](https://stackoverflow.com/questions/27453156/jenkins-how-to-print-the-contents-of-a-text-file-to-the-build-log)
+- [jenkins pipeline: agent vs node? Issue - StackOverflow - Matthias M](https://stackoverflow.com/questions/42050626/jenkins-pipeline-agent-vs-node)
+- [How do I make Jenkins pipeline run in (any) agent machine, but never master? Issue - StackOverflow - Joshua Fox](https://stackoverflow.com/questions/54020776/how-do-i-make-jenkins-pipeline-run-in-any-agent-machine-but-never-master)
+- [Why our batch process works locally and not from Jenkins? - CloudBees](https://support.cloudbees.com/hc/en-us/articles/115000733051-Why-our-batch-process-works-locally-and-not-from-Jenkins-)
+- [Jenkins CI Pipeline Scripts not permitted to use method groovy.lang.GroovyObject Issue - StackOverflow - Daniel Hernández](https://stackoverflow.com/questions/38276341/jenkins-ci-pipeline-scripts-not-permitted-to-use-method-groovy-lang-groovyobject)
+- [Processing XML - Apache Groovy](https://groovy-lang.org/processing-xml.html)
+- [Jenkins Workflow-Plugin and Groovy Libs Issue - StackOverflow - Rene](https://stackoverflow.com/questions/33912964/jenkins-workflow-plugin-and-groovy-libs)
 
 ### Slack notifications
 
-- https://levelup.gitconnected.com/send-slack-notifications-with-jenkins-f8e8b2d2e748
-- https://slack.com/intl/en-ar/help/articles/202931348-Use-emoji-and-emoticons
-- https://www.webfx.com/tools/emoji-cheat-sheet/
-- https://www.jenkins.io/doc/pipeline/steps/slack/
-- https://www.color-hex.com/
+- [Send Slack Notifications with Jenkins - Venessa Yeh](https://levelup.gitconnected.com/send-slack-notifications-with-jenkins-f8e8b2d2e748)
+- [Use emoji and emoticons - Slack](https://slack.com/intl/en-ar/help/articles/202931348-Use-emoji-and-emoticons)
+- [Emoji Cheat Sheet - Webfx](https://www.webfx.com/tools/emoji-cheat-sheet/)
+- [Slack Notification Plugin - Jenkins](https://www.jenkins.io/doc/pipeline/steps/slack/)
+- [Color Hex Color Codes - color-hex](https://www.color-hex.com/)
 
 ### ngrok
 
-- https://ngrok.com/product
-- https://danielmiessler.com/study/ngrok/
-- https://blog.developer.atlassian.com/secure-localhost-tunnels-with-ngrok/
+- [ngrok Official page](https://ngrok.com/product)
+- [An ngrok Tutorial and Primer - Daniel Miessler](https://danielmiessler.com/study/ngrok/)
+- [Secure localhost tunnels with ngrok - Atlassian](https://blog.developer.atlassian.com/secure-localhost-tunnels-with-ngrok/)
 
 ### GitHub
 
-- https://developer.github.com/webhooks/creating/
-- https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4
-- https://stackoverflow.com/questions/58402423/github-webhook-with-local-jenkins-and-ngrok
-- https://stackoverflow.com/questions/49848884/github-webhook-with-jenkins-return-302-notfound
+- [Creating Webhooks - GitHub](https://developer.github.com/webhooks/creating/)
+- [Triggering a Jenkins build on push using GitHub webhooks - Parul Dixit](https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4)
+- [Github webhook with local Jenkins and ngrok Issue - StackOverflow - Pruitlgoe](https://stackoverflow.com/questions/58402423/github-webhook-with-local-jenkins-and-ngrok)
+- [Github Webhook With Jenkins return 302 NotFound Issue - StackOverflow - Xiaoxi Bian](https://stackoverflow.com/questions/49848884/github-webhook-with-jenkins-return-302-notfound)
 
 ### OpenCppCoverage
 
-- https://github.com/OpenCppCoverage/OpenCppCoverage
-- https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/Jenkins
+- [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage)
+- [OpenCppCoverage and Cobertura Plugin](https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/Jenkins)
 
 ### UE4
 
-- https://patricevignola.com/post/automation-jenkins-unreal
-- http://www.extroforge.com/unreal-build-automation-and-deployment-at-extroforge/
-- https://github.com/skymapgames/jenkins-ue4
-- https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html
-- https://blog.squareys.de/ue4-automation-tool/
-- https://blog.mi.hdm-stuttgart.de/index.php/2017/02/11/uat-automation/
-- https://ericlemes.com/2018/12/12/unit-tests-in-unreal-pt-1/
-- https://answers.unrealengine.com/questions/706252/simple-automation-test-on-dedicated-server-build.html
-- https://answers.unrealengine.com/questions/106978/run-automated-testing-from-command-line.html
-- https://unrealcontainers.com/docs/use-cases/continuous-integration
+- [Automation System Overview - Epic Games](https://docs.unrealengine.com/en-US/Programming/Automation/index.html)
+- [Automation System User Guide](https://docs.unrealengine.com/en-US/Programming/Automation/UserGuide/index.html)
+- [Automation Technical Guide - Epic Games](https://docs.unrealengine.com/en-US/Programming/Automation/TechnicalGuide/index.html)
+- [Automation with Unreal Engine and Jenkins-CI - Patrice Vignola](https://patricevignola.com/post/automation-jenkins-unreal)
+- [Unreal Build Automation and Deployment at ExtroForge](http://www.extroforge.com/unreal-build-automation-and-deployment-at-extroforge/)
+- [Jenkins CI Automation for Unreal Engine 4 Projects](https://github.com/skymapgames/jenkins-ue4)
+- [UE4 Unit Tests in Jenkins - Michael Delva](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html)
+- [UE4 Automation Tool - Jonathan Hale](https://blog.squareys.de/ue4-automation-tool/)
+- [Automate deployment with the Unreal Engine using the Unreal Automation Tool (UAT) - Marvin Pohl](https://blog.mi.hdm-stuttgart.de/index.php/2017/02/11/uat-automation/)
+- [Unit Tests in Unreal – pt 1 – A definition of Unit Tests for this series - Eric Lemes](https://ericlemes.com/2018/12/12/unit-tests-in-unreal-pt-1/)
+- [Simple Automation Test on Dedicated Server Build Issue - rjjatson](https://answers.unrealengine.com/questions/706252/simple-automation-test-on-dedicated-server-build.html)
+- [Run automated testing from command line Discussion - nikitablack](https://answers.unrealengine.com/questions/106978/run-automated-testing-from-command-line.html)
+- [Unreal Containers (future use)](https://unrealcontainers.com/docs/use-cases/continuous-integration)
+
+### BATCH
+
+- [Pass Command Line arguments (Parameters) to a Windows batch file.](https://ss64.com/nt/syntax-args.html)
+- [Remove Quotes from a string](https://ss64.com/nt/syntax-dequote.html)
+- [Setting variables](https://ss64.com/nt/set.html)
+- [Defining and using a variable in batch file](https://stackoverflow.com/questions/10552812/defining-and-using-a-variable-in-batch-file)
 
 (more to come, maybe)
 
