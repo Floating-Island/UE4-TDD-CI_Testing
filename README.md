@@ -76,11 +76,10 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 - It's not necessary to create the Visual Studio files because we don't do anything with Visual Studio, we run the tests using the Unreal Automation Tool.
 - TestRunnerAndCodeCoverage uses OpenCppCodeCoverage (which does the code coverage) attached to the Unreal Engine Editor (which does the tests run).
 - TestRunnerAndCodeCoverage.bat assumes that you have a separate folder for tests (\Tests). This could be changed hardcoding it or adding another parameter to the batch file.
-- The Tests Report is made in JSon so we need to parse it to XML to be readable by JUnit.
+- The Tests Report is made in JSon so we need to parse it to XML to be readable by JUnit. So, thanks to Michael Delva for his test report parser method found in his [blogspot](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html), I used it almost with no changes.
 - The CodeCoverageReport will be used by Cobertura to display the code coverage.
 - In some places, slackSend is used to send messages to a Slack Workspace. The channel name is only used if you want to override the one used in the Slack plugin configuration.
 - I do a git hard reset and git clean to clean the workspace after everything has been done. This way, if the repository it's something big, only the changes are downloaded and thus, we save bandwidth.
-- Thanks to Michael Delva for his test report parser method found in his [blogspot](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html), I used it almost with no changes.
 
 ## **Resources**
 
