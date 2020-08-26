@@ -4,12 +4,12 @@ Project Template to use on TDD and CI with Unreal Engine 4 on Windows.
 I didn't make anything special, just read what others have done and used it here.
 
 Requirements:
-  -Unreal Engine 4 (4.22).
-  -git.
-  -github.
-  -ngrok.
-  -Jenkins.
-  -OpencppCodeCoverage.
+  - Unreal Engine 4 (4.22).
+  - git.
+  - github.
+  - ngrok.
+  - Jenkins.
+  - OpencppCodeCoverage.
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works.
 
