@@ -30,9 +30,9 @@ Inside that pipeline we're going to declare how to build the project, run our te
 
 **How's the process then?**
 
-1) you code locally (create tests, classes, etc).
-2) you commit code.
-3) you push your code (or do a pull request).
+1) You code locally (create tests, classes, etc).
+2) You commit code.
+3) You push your code (or do a pull request).
 4) Github receives the push and uses it's webhook to notify Jenkins via a tunnel created by ngrok (because we don't have a way to communicate directly with Jenkins).
 5) Jenkins receives a notification that a repository included in a pipeline has received a push.
 6) Jenkins pulls every change to the repository in Jenkins workspace.
