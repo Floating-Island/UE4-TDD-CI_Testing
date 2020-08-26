@@ -1,6 +1,7 @@
 # UE4 TDD CI Testing Template
 
 Project Template to use on TDD and CI with Unreal Engine 4 on Windows.
+Feel fre to use it as you want.
 
 I didn't make anything special, just read what others have done and used it here.
 
