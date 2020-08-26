@@ -46,7 +46,7 @@ This problem is a source of some headaches in the beginning, but you'll become a
 
 First Time Steps:
 
-0)Install required programs.
+0) Install required programs.
 1) Create Unreal Project.
 2) Add .gitignore.
 3) Add Jenkinsfile and push changes.
