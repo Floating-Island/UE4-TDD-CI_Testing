@@ -44,6 +44,10 @@ Looks easy, right? The only problem is understanding that Jenkins is meant to be
 
 This problem is a source of some headaches in the beginning, but you'll become accustomed to it.
 
+Steps:
+
+(to do)
+
 
 
  
