@@ -13,6 +13,9 @@
 //each one of this tests should test something of the project class that this test class references to.
 //Each project class should have a test class for it. It's something kind of necessary for TDD.
 
+//It's nice if the prettyname follows a pattern like: Game.Unit.ClassToTest.TestName
+//TestName should express what you expect from a test given a scenario.
+
 
 //a test
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FOneShouldBeOneTest, "Game.Unit.TestPlaceholder.OneShouldBeOne", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
