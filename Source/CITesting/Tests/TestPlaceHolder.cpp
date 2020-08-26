@@ -3,10 +3,4 @@
 
 #include "TestPlaceHolder.h"
 
-TestPlaceHolder::TestPlaceHolder()
-{
-}
 
-TestPlaceHolder::~TestPlaceHolder()
-{
-}

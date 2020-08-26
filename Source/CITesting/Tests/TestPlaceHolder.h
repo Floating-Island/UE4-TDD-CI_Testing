@@ -9,7 +9,5 @@
  */
 class CITESTING_API TestPlaceHolder
 {
-public:
-	TestPlaceHolder();
-	~TestPlaceHolder();
+
 };
