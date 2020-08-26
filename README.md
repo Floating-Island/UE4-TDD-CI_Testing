@@ -1,9 +1,11 @@
 # UE4-TDD-CI_Testing
+
 Project Template to use on TDD and CI with Unreal Engine 4 on Windows.
 
 I didn't make anything special, just read what others have done and used it here.
 
-Requirements:
+## **Requirements**
+
   - Unreal Engine 4 (4.22).
   - git.
   - github.
@@ -13,7 +15,7 @@ Requirements:
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works.
 
-Introduction:
+## **Introduction**
 
 Unreal Engine provides a testing suite inside it's Automation Framework, but it's tedious (and consumes a lot of time) to write a test, build the project, open the editor,
  run the tests and see if they pass or fail.
@@ -27,26 +29,26 @@ A pipeline is a configuration of a workspace environment, a series of stages, ea
 
 Inside that pipeline we're going to declare how to build the project, run our tests, check if they fail or pass and also which parts aren't tested (via code coverage).
 
-How's the process then?
+**How's the process then?**
 
 1) you code locally (create tests, classes, etc).
 2) you commit code.
-2) you push your code (or do a pull request).
-3) Github receives the push and uses it's webhook to notify Jenkins via a tunnel created by ngrok (because we don't have a way to communicate directly with Jenkins).
-4) Jenkins receives a notification that a repository included in a pipeline has received a push.
-5) Jenkins pulls every change to the repository in Jenkins workspace.
-6) Jenkins starts the pipeline associated with that repository.
-7) The Pipeline builds the project.
-8) The Pipeline Runs the tests while doing code coverage.
-9) The Pipeline shows build status and tests reports.
-10) Jenkins notifies Github the results of the pipeline build.
+3) you push your code (or do a pull request).
+4) Github receives the push and uses it's webhook to notify Jenkins via a tunnel created by ngrok (because we don't have a way to communicate directly with Jenkins).
+5) Jenkins receives a notification that a repository included in a pipeline has received a push.
+6) Jenkins pulls every change to the repository in Jenkins workspace.
+7) Jenkins starts the pipeline associated with that repository.
+8) The Pipeline builds the project.
+9) The Pipeline Runs the tests while doing code coverage.
+10) The Pipeline shows build status and tests reports.
+11) Jenkins notifies Github the results of the pipeline build.
 
 Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every
  appication that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
 
 This problem is a source of some headaches in the beginning, but you'll become accustomed to it.
 
-First Time Steps:
+## **First Time Steps:**
 
 0) Install required programs.
 1) Create Unreal Project.
@@ -55,11 +57,11 @@ First Time Steps:
 4) Create a class (without parent, None) from the UE Editor, place it in a separate 'Tests' folder and use it as a test class.
 5) Create tests.
 6) In Jenkins Install:
-  - Blue Ocean plugin (there're plugins necessary with it and if you want a prettier Jenkins).
-  - GitHub plugin (for pull requests).
-  - HTTP request plugin (mm don't know if necessary, but it was some time ago).
-  - Cobertura plugin (for code coverage).
-  - Slack plugin and configure it (if you want slack notifications).
+      - Blue Ocean plugin (there're plugins necessary with it and if you want a prettier Jenkins).
+      - GitHub plugin (for pull requests).
+      - HTTP request plugin (mm don't know if necessary, but it was some time ago).
+      - Cobertura plugin (for code coverage).
+      - Slack plugin and configure it (if you want slack notifications).
 7) Create Jenkins Multibranch Pipeline project.
 8) Create a tunnel via ngrok to the Jenkins port (default is 8080).
 9) Add a webhook to the github repository referencing the http given by ngrok (don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!).
@@ -67,8 +69,7 @@ First Time Steps:
 
 It would be nice to add github checks to pull requests, but it's not possible with a free account.
 
-
-Jenkinsfile:
+## **Jenkinsfile:**
 
 - I use node 'master' because I have only one pc for Jenkins.
 - I use a custom workspace (and at the beginning of the disk) because the Unreal Build Tool has problems with long filenames.
@@ -83,11 +84,10 @@ Jenkinsfile:
 - I do a git hard reset and git clean to clean the workspace after everything has been done. This way, if the repository it's something big, only the changes are downloaded and thus, we save bandwidth.
 - Thanks to Michael Delva for his test report parser method found in his blogspot: https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html, I used it almost with no changes.
 
+## **Resources:**
 
-Resources:
+### TDD and CI
 
-
-TDD and CI:
 - https://en.wikipedia.org/wiki/Test-driven_development
 - https://en.wikipedia.org/wiki/Continuous_integration
 - https://martinfowler.com/bliki/SelfTestingCode.html
@@ -97,7 +97,8 @@ TDD and CI:
 - https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
 - https://martinfowler.com/articles/branching-patterns.html
 
-Jenkins:
+### Jenkins
+
 - https://superuser.com/questions/879392/how-force-jenkins-to-show-ui-always-in-english
 - https://devopscube.com/jenkins-build-trigger-github-pull-request/
 - https://devopscube.com/jenkins-multibranch-pipeline-tutorial/
@@ -114,29 +115,34 @@ Jenkins:
 - https://groovy-lang.org/processing-xml.html
 - https://stackoverflow.com/questions/33912964/jenkins-workflow-plugin-and-groovy-libs
 
-Slack notifications:
+### Slack notifications
+
 - https://levelup.gitconnected.com/send-slack-notifications-with-jenkins-f8e8b2d2e748
 - https://slack.com/intl/en-ar/help/articles/202931348-Use-emoji-and-emoticons
 - https://www.webfx.com/tools/emoji-cheat-sheet/
 - https://www.jenkins.io/doc/pipeline/steps/slack/
 - https://www.color-hex.com/
 
-ngrok:
+### ngrok
+
 - https://ngrok.com/product
 - https://danielmiessler.com/study/ngrok/
 - https://blog.developer.atlassian.com/secure-localhost-tunnels-with-ngrok/
 
-GitHub:
+### GitHub
+
 - https://developer.github.com/webhooks/creating/
 - https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4
 - https://stackoverflow.com/questions/58402423/github-webhook-with-local-jenkins-and-ngrok
 - https://stackoverflow.com/questions/49848884/github-webhook-with-jenkins-return-302-notfound
 
-OpenCppCoverage:
+### OpenCppCoverage
+
 - https://github.com/OpenCppCoverage/OpenCppCoverage
 - https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/Jenkins
 
-UE4:
+### UE4
+
 - https://patricevignola.com/post/automation-jenkins-unreal
 - http://www.extroforge.com/unreal-build-automation-and-deployment-at-extroforge/
 - https://github.com/skymapgames/jenkins-ue4
@@ -149,5 +155,3 @@ UE4:
 - https://unrealcontainers.com/docs/use-cases/continuous-integration
 
 (more to come, maybe)
-
-
