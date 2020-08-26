@@ -60,7 +60,7 @@ First Time Steps:
   -Slack plugin and configure it (if you want slack notifications).
 7) Create Jenkins Multibranch Pipeline project.
 8) Create a tunnel via ngrok to the Jenkins port (default is 8080).
-9) Add a webhook to the github repository referencing the http given by ngrok.
+9) Add a webhook to the github repository referencing the http given by ngrok (don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!).
 10) Push to see the build trigger in Jenkins.
 
 (to do)
