@@ -152,5 +152,4 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 
 (more to come, maybe)
 
-Alberto Mikulan.
-alberto.mikulan@gmail.com
+**Alberto Mikulan, alberto.mikulan@gmail.com**
