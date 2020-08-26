@@ -1,6 +1,8 @@
 # UE4-TDD-CI_Testing
 Project Template to use on TDD and CI with Unreal Engine 4 on Windows.
 
+I didn't make anything special, just read what others have done and used it here.
+
 Requirements:
   -Unreal Engine 4 (4.22).
   -git.
@@ -71,7 +73,7 @@ Jenkinsfile:
 - I use node 'master' because I have only one pc for Jenkins.
 - I use a custom workspace (and at the beginning of the disk) because the Unreal Build Tool has problems with long filenames.
 - The environment variables are used as parameters, to avoid hardcoding.
-- BuildWithoutCooking.bat it's used to build the project. I don't use cooking because I think that process should be made when in production.
+- BuildWithoutCooking.bat it's used to build the project. I don't use cooking because I think that process should be made in continuous delivery.
 - It's not necessary to create the Visual Studio files because we don't do anything with Visual Studio, we run the tests using the Unreal Automation Tool.
 - TestRunnerAndCodeCoverage uses OpenCppCodeCoverage (which does the code coverage) attached to the Unreal Engine Editor (which does the tests run).
 - TestRunnerAndCodeCoverage.bat assumes that you have a separate folder for tests (\Tests). This could be changed hardcoding it or adding another parameter to the batch file.
@@ -84,4 +86,68 @@ Jenkinsfile:
 
 Resources:
 
-(to do)
+
+TDD and CI:
+-https://en.wikipedia.org/wiki/Test-driven_development
+-https://en.wikipedia.org/wiki/Continuous_integration
+-https://martinfowler.com/bliki/SelfTestingCode.html
+-https://martinfowler.com/articles/continuousIntegration.html
+-https://www.thoughtworks.com/continuous-integration
+-https://martinfowler.com/bliki/ContinuousDelivery.html?utm_source=Codeship&utm_medium=CI-Guide
+-https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
+-https://martinfowler.com/articles/branching-patterns.html
+
+Jenkins:
+-https://superuser.com/questions/879392/how-force-jenkins-to-show-ui-always-in-english
+-https://devopscube.com/jenkins-build-trigger-github-pull-request/
+-https://devopscube.com/jenkins-multibranch-pipeline-tutorial/
+-https://www.jenkins.io/doc/book/pipeline/
+-https://www.jenkins.io/doc/book/pipeline/syntax/
+-https://www.jenkins.io/doc/book/pipeline/syntax/#agent
+-https://www.jenkins.io/doc/pipeline/examples/
+-https://www.jenkins.io/doc/book/pipeline/jenkinsfile/
+-https://stackoverflow.com/questions/27453156/jenkins-how-to-print-the-contents-of-a-text-file-to-the-build-log
+-https://stackoverflow.com/questions/42050626/jenkins-pipeline-agent-vs-node
+-https://stackoverflow.com/questions/54020776/how-do-i-make-jenkins-pipeline-run-in-any-agent-machine-but-never-master
+-https://support.cloudbees.com/hc/en-us/articles/115000733051-Why-our-batch-process-works-locally-and-not-from-Jenkins-
+-https://stackoverflow.com/questions/38276341/jenkins-ci-pipeline-scripts-not-permitted-to-use-method-groovy-lang-groovyobject
+-https://groovy-lang.org/processing-xml.html
+-https://stackoverflow.com/questions/33912964/jenkins-workflow-plugin-and-groovy-libs
+
+Slack notifications:
+-https://levelup.gitconnected.com/send-slack-notifications-with-jenkins-f8e8b2d2e748
+-https://slack.com/intl/en-ar/help/articles/202931348-Use-emoji-and-emoticons
+-https://www.webfx.com/tools/emoji-cheat-sheet/
+-https://www.jenkins.io/doc/pipeline/steps/slack/
+-https://www.color-hex.com/
+
+ngrok:
+-https://ngrok.com/product
+-https://danielmiessler.com/study/ngrok/
+-https://blog.developer.atlassian.com/secure-localhost-tunnels-with-ngrok/
+
+GitHub:
+-https://developer.github.com/webhooks/creating/
+-https://medium.com/faun/triggering-jenkins-build-on-push-using-github-webhooks-52d4361542d4
+-https://stackoverflow.com/questions/58402423/github-webhook-with-local-jenkins-and-ngrok
+-https://stackoverflow.com/questions/49848884/github-webhook-with-jenkins-return-302-notfound
+
+OpenCppCoverage:
+-https://github.com/OpenCppCoverage/OpenCppCoverage
+-https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/Jenkins
+
+UE4:
+-https://patricevignola.com/post/automation-jenkins-unreal
+-http://www.extroforge.com/unreal-build-automation-and-deployment-at-extroforge/
+-https://github.com/skymapgames/jenkins-ue4
+-https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html
+-https://blog.squareys.de/ue4-automation-tool/
+-https://blog.mi.hdm-stuttgart.de/index.php/2017/02/11/uat-automation/
+-https://ericlemes.com/2018/12/12/unit-tests-in-unreal-pt-1/
+-https://answers.unrealengine.com/questions/706252/simple-automation-test-on-dedicated-server-build.html
+-https://answers.unrealengine.com/questions/106978/run-automated-testing-from-command-line.html
+-https://unrealcontainers.com/docs/use-cases/continuous-integration
+
+(more to come, maybe)
+
+
