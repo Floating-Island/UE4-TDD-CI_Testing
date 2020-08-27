@@ -141,8 +141,8 @@ The following is a list of resources that helped me while doing this project.
 
 ### OpenCppCoverage
 
-- [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage)
-- [OpenCppCoverage and Cobertura Plugin](https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/Jenkins)
+- [OpenCppCoverage Official Page](https://github.com/OpenCppCoverage/OpenCppCoverage)
+- [OpenCppCoverage and Cobertura Plugin - GitHub](https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/Jenkins)
 
 ### UE4
 
@@ -158,8 +158,8 @@ The following is a list of resources that helped me while doing this project.
 - [Tech Blog: Adopting Continuous Delivery (Part 3) - Rare - Jafar Soltani](https://www.rare.co.uk/news/tech-blog-continuous-delivery-part3)
 - [Automated Testing of Gameplay Features in 'Sea of Thieves' - Robert Masella](https://www.gdcvault.com/play/1026366/Automated-Testing-of-Gameplay-Features)
 - [Automation with Unreal Engine and Jenkins-CI - Patrice Vignola](https://patricevignola.com/post/automation-jenkins-unreal)
-- [Unreal Build Automation and Deployment at ExtroForge](http://www.extroforge.com/unreal-build-automation-and-deployment-at-extroforge/)
-- [Jenkins CI Automation for Unreal Engine 4 Projects](https://github.com/skymapgames/jenkins-ue4)
+- [Unreal Build Automation and Deployment at ExtroForge - ExtroForge](http://www.extroforge.com/unreal-build-automation-and-deployment-at-extroforge/)
+- [Jenkins CI Automation for Unreal Engine 4 Projects - Skymap Games](https://github.com/skymapgames/jenkins-ue4)
 - [UE4 Unit Tests in Jenkins - Michael Delva](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html)
 - [UE4 Automation Tool - Jonathan Hale](https://blog.squareys.de/ue4-automation-tool/)
 - [Who has the latest Unreal Engine 4 Console Variables and Commands? Can you share it with me? Issue - Unreal Engine Forums - GaoHeShun](https://answers.unrealengine.com/questions/751432/view.html)
@@ -173,10 +173,10 @@ The following is a list of resources that helped me while doing this project.
 
 ### BATCH
 
-- [Pass Command Line arguments (Parameters) to a Windows batch file.](https://ss64.com/nt/syntax-args.html)
-- [Remove Quotes from a string](https://ss64.com/nt/syntax-dequote.html)
-- [Setting variables](https://ss64.com/nt/set.html)
-- [Defining and using a variable in batch file](https://stackoverflow.com/questions/10552812/defining-and-using-a-variable-in-batch-file)
+- [Pass Command Line arguments (Parameters) to a Windows batch file - ss64](https://ss64.com/nt/syntax-args.html)
+- [Remove Quotes from a string - ss64](https://ss64.com/nt/syntax-dequote.html)
+- [Setting variables - ss64](https://ss64.com/nt/set.html)
+- [Defining and using a variable in batch file Issue - StackOverflow - Jamie Dixon](https://stackoverflow.com/questions/10552812/defining-and-using-a-variable-in-batch-file)
 
 (more to come, maybe)
 
