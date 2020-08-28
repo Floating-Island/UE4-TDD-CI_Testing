@@ -65,7 +65,7 @@ This problem is a source of some headaches in the beginning, but you'll become a
 9) Add a webhook to the github repository referencing the http given by ngrok (**don't forget to add a forward slash '/' to the webhook trail if it doesn't have one!!!**).
 10) Push to see the build trigger in Jenkins.
 
-It would be nice to add github checks to pull requests, but it's not possible with a free account.
+It would be nice to add github checks to pull requests, but it's not possible with a free account (in private repositories).
 
 ## **Jenkinsfile**
 
