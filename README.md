@@ -8,7 +8,7 @@ I didn't make anything special, I just read what others have done and adapted it
 
 ## **Requirements**
 
-- Unreal Engine 4 (4.22).
+- Unreal Engine 4 (4.22+).
 - git.
 - github.
 - ngrok.
