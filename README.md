@@ -42,7 +42,7 @@ Inside that pipeline we're going to declare how to build the project, run our te
 10) The Pipeline shows build status and tests reports.
 11) Jenkins notifies Github the results of the pipeline build.
 
-Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every appication that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
+Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every application that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
 
 This problem is a source of some headaches in the beginning, but you'll become accustomed to it.
 
