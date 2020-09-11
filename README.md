@@ -13,7 +13,7 @@ I didn't make anything special, I just read what others have done and adapted it
 - github.
 - ngrok.
 - Jenkins.
-- OpencppCodeCoverage.
+- OpenCppCoverage.
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works. If not, check the resources section, it's a nice place to start and you can try tests with this project.
 
