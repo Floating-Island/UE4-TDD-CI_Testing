@@ -19,6 +19,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UStaticMeshComponent* meshComponent;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
