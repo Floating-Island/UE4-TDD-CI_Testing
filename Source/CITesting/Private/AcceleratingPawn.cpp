@@ -9,6 +9,8 @@ AAcceleratingPawn::AAcceleratingPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	meshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh Component"));
+	RootComponent = meshComponent;
 }
 
 // Called when the game starts or when spawned
