@@ -21,30 +21,14 @@
 //Pay attention to the automation flags because they're needed to run the tests without UI errors.
 
 
-//a test
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FOneShouldBeOneTest, "Game.Unit.TestPlaceholder.OneShouldBeOne", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest, "ProjectR.Unit.JetTests.ShouldntBeNullWhenInstantiated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
-
-bool FOneShouldBeOneTest::RunTest(const FString& Parameters)
+bool FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest::RunTest(const FString& Parameters)
 {
-	//One should be one.
 	{
-		TestEqual(TEXT("one is one"), 1, 1);
-	}
-
-	return true;
-}
-
-
-//another test
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FSTwoShouldBeTwoTest, "Game.Unit.TestPlaceholder.TwoShouldBeTwo", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
-
-
-bool FSTwoShouldBeTwoTest::RunTest(const FString& Parameters)
-{
-	//two should be two.
-	{
-		TestEqual(TEXT("two is two"), 2, 2);
+		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
+		
+		TestNotNull(TEXT("The Jet shouldn't be null after instantiating it."), testPawn);
 	}
 
 	return true;
