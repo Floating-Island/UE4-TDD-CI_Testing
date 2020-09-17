@@ -21,7 +21,7 @@
 //Pay attention to the automation flags because they're needed to run the tests without UI errors.
 
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest, "Game.Unit.AcceleratingPawn.ShouldntBeNullWhenInstantiated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest, "Game.Unit.AcceleratingPawnTests.ShouldntBeNullWhenInstantiated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
 bool FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest::RunTest(const FString& Parameters)
 {
@@ -29,6 +29,20 @@ bool FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest::RunTest(const FStrin
 		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
 		
 		TestNotNull(TEXT("The pawn shouldn't be null after instantiating it."), testPawn);
+	}
+
+	return true;
+}
+
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldHaveAStaticMeshTest, "Game.Unit.AcceleratingPawnTests.ShouldHaveAStaticMesh", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnShouldHaveAStaticMeshTest::RunTest(const FString& Parameters)
+{
+	{
+		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
+		
+		TestTrue(TEXT("The Jet static mesh shouldn't be null if it has one."), testPawn->hasAStaticMesh());
 	}
 
 	return true;
