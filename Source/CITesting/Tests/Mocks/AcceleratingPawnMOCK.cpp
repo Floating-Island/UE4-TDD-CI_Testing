@@ -3,3 +3,7 @@
 
 #include "AcceleratingPawnMOCK.h"
 
+bool AAcceleratingPawnMOCK::isMeshTheRootComponent()
+{
+	return (RootComponent == meshComponent)? true : false;
+}

@@ -13,5 +13,8 @@ UCLASS()
 class CITESTING_API AAcceleratingPawnMOCK : public AAcceleratingPawn
 {
 	GENERATED_BODY()
+
+public:
 	
+	bool isMeshTheRootComponent();
 };
