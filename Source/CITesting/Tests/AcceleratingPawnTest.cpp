@@ -3,10 +3,3 @@
 
 #include "AcceleratingPawnTest.h"
 
-AcceleratingPawnTest::AcceleratingPawnTest()
-{
-}
-
-AcceleratingPawnTest::~AcceleratingPawnTest()
-{
-}

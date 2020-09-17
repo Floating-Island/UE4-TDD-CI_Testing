@@ -10,6 +10,5 @@
 class CITESTING_API AcceleratingPawnTest
 {
 public:
-	AcceleratingPawnTest();
-	~AcceleratingPawnTest();
+
 };
