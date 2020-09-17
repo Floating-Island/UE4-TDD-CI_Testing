@@ -4,6 +4,7 @@
 #include "AcceleratingPawnTest.h"
 
 #include "AcceleratingPawn.h"//the class we are testing.
+#include "Mocks/AcceleratingPawnMOCK.h"//class mock to implement methods that aren't related with the class but with the tests.
 
 #include "Misc/AutomationTest.h"
 
@@ -43,6 +44,21 @@ bool FAnAcceleratingPawnShouldHaveAStaticMeshTest::RunTest(const FString& Parame
 		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
 		
 		TestTrue(TEXT("The Jet static mesh shouldn't be null if it has one."), testPawn->hasAStaticMesh());
+	}
+
+	return true;
+}
+
+
+//uses a mock
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnMeshShouldBeTheRootComponentTest, "Game.Unit.AcceleratingPawnTests.MeshShouldBeTheRootComponent", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnMeshShouldBeTheRootComponentTest::RunTest(const FString& Parameters)
+{
+	{
+		AAcceleratingPawnMOCK* testPawnMock = NewObject<AAcceleratingPawnMOCK>();
+		
+		TestTrue(TEXT("The Jet static mesh should be the root component."), testPawnMock->isMeshTheRootComponent());
 	}
 
 	return true;

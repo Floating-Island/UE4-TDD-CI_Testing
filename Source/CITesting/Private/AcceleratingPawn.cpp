@@ -36,6 +36,6 @@ void AAcceleratingPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 bool AAcceleratingPawn::hasAStaticMesh()
 {
-	return meshComponent? true : false ;
+	return meshComponent? true : false;
 }
 
