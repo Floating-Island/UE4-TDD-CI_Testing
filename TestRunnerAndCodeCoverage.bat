@@ -6,6 +6,6 @@ set testReportFolder=%~5
 set testsLogName=%~6
 set codeCoverageFile=%~7
 
-set testRunnerCommand="%ue4Location%\Engine\Binaries\Win64\UE4Editor-cmd.exe" "%workspace%\%projectFilename%" -nosplash -Unattended -nopause -server -NullRHI -nocontentbrowser -ExecCmds="Automation RunTests %testSuiteToRun%;quit" -TestExit="Automation Test Queue Empty" -ReportOutputPath="%workspace%\%testReportFolder%" -log -Log=%testsLogName%
+set testRunnerCommand="%ue4Location%\Engine\Binaries\Win64\UE4Editor-cmd.exe" "%workspace%\%projectFilename%" -nosplash -Unattended -nopause -NullRHI -nocontentbrowser -ExecCmds="Automation RunTests %testSuiteToRun%;quit" -TestExit="Automation Test Queue Empty" -ReportOutputPath="%workspace%\%testReportFolder%" -log -Log=%testsLogName%
 
-"C:\Program Files\OpenCppCoverage\opencppcoverage.exe" --sources=\Source --excluded_sources=\Engine --excluded_sources=\Tests --export_type=cobertura:%codeCoverageFile%  -- %testRunnerCommand%
+"C:\Program Files\OpenCppCoverage\opencppcoverage.exe" --sources=\Source --excluded_sources=\Engine --excluded_sources=\Tests --excluded_sources=\dev --excluded_sources=\bt --export_type=cobertura:%codeCoverageFile%  -- %testRunnerCommand%

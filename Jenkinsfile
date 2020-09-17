@@ -131,8 +131,10 @@ def transformReport( String jsonContent ) {
     builder.testsuite( tests: parsedReport.succeeded + parsedReport.failed, failures: parsedReport.failed, time: parsedReport.totalDuration ) {
         for ( test in parsedReport.tests ) {
             builder.testcase( name: test.testDisplayName, classname: test.fullTestPath, status: test.state ) {
-                for ( entry in test.entries ) { 
+                if(test.state == "Fail") {
+                  for ( entry in test.entries ) { 
                     builder.failure( message: entry.event.message, type: entry.event.type, entry.filename + " " + entry.lineNumber )
+                  }
                 }
             }
         }

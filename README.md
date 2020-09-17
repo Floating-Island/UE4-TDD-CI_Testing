@@ -8,12 +8,13 @@ I didn't make anything special, I just read what others have done and adapted it
 
 ## **Requirements**
 
+
 - Unreal Engine 4 (initially on 4.22, now on 4.25).
 - git.
 - github.
 - ngrok.
 - Jenkins.
-- OpencppCodeCoverage.
+- OpenCppCoverage.
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works. If not, check the resources section, it's a nice place to start and you can try tests with this project.
 
@@ -42,7 +43,7 @@ Inside that pipeline we're going to declare how to build the project, run our te
 10) The Pipeline shows build status and tests reports.
 11) Jenkins notifies Github the results of the pipeline build.
 
-Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every appication that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
+Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every application that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
 
 This problem is a source of some headaches in the beginning, but you'll become accustomed to it.
 
@@ -76,7 +77,7 @@ It would be nice to add github checks to pull requests, but it's not possible wi
 - It's not necessary to create the Visual Studio files because we don't do anything with Visual Studio, we run the tests using the Unreal Automation Tool.
 - TestRunnerAndCodeCoverage uses OpenCppCodeCoverage (which does the code coverage) attached to the Unreal Engine Editor (which does the tests run).
 - TestRunnerAndCodeCoverage.bat assumes that you have a separate folder for tests (\Tests). This could be changed hardcoding it or adding another parameter to the batch file.
-- The Tests Report is made in JSon so we need to parse it to XML to be readable by JUnit. So, thanks to Michael Delva for his test report parser method found in his [blogspot](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html), I used it almost with no changes.
+- The Tests Report is made in JSon so we need to parse it to XML to be readable by JUnit. So, thanks to Michael Delva for his test report parser method found in his [blogspot](https://www.emidee.net/ue4/2018/11/13/UE4-Unit-Tests-in-Jenkins.html), I modified it only a little.
 - The CodeCoverageReport will be used by Cobertura to display the code coverage.
 - In some places, slackSend is used to send messages to a Slack Workspace. The channel name is only used if you want to override the one used in the Slack plugin configuration.
 - I do a git hard reset and git clean to clean the workspace after everything has been done. This way, if the repository it's something big, only the changes are downloaded and thus, we save bandwidth.
