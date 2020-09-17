@@ -21,14 +21,14 @@
 //Pay attention to the automation flags because they're needed to run the tests without UI errors.
 
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest, "ProjectR.Unit.JetTests.ShouldntBeNullWhenInstantiated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest, "Game.Unit.AcceleratingPawn.ShouldntBeNullWhenInstantiated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
 bool FAnAcceleratingPawnShouldntBeNullWhenInstantiatedTest::RunTest(const FString& Parameters)
 {
 	{
 		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
 		
-		TestNotNull(TEXT("The Jet shouldn't be null after instantiating it."), testPawn);
+		TestNotNull(TEXT("The pawn shouldn't be null after instantiating it."), testPawn);
 	}
 
 	return true;
