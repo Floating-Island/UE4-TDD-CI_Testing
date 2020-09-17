@@ -3,6 +3,8 @@
 
 #include "AcceleratingPawnTest.h"
 
+#include "AcceleratingPawn.h"//the class we are testing.
+
 #include "Misc/AutomationTest.h"
 
 
