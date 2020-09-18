@@ -7,6 +7,10 @@
 #include "Mocks/AcceleratingPawnMOCK.h"//class mock to implement methods that aren't related with the class but with the tests.
 
 #include "Misc/AutomationTest.h"
+//to be able to simulate:
+#include "Tests/AutomationEditorCommon.h"
+#include "Editor.h"
+#include "Kismet/GameplayStatics.h"
 
 
 
@@ -134,5 +138,87 @@ bool FAnAcceleratingPawnDefaultAccelerationIsGreaterThanZeroTest::RunTest(const 
 	
 	return true;
 }
+
+
+
+
+
+
+DEFINE_LATENT_AUTOMATION_COMMAND(FSpawningAJetMakeItAccelerateCommand);
+
+bool FSpawningAJetMakeItAccelerateCommand::Update()
+{
+	if (!GEditor->IsPlayingSessionInEditor())//if not, everything would be made while the map is loading and the PIE is in progress.
+	{
+		return false;
+	}
+
+	UWorld* testWorld = GEditor->GetPIEWorldContext()->World();
+
+	AAcceleratingPawn* testPawn = testWorld->SpawnActor<AAcceleratingPawn>(AAcceleratingPawn::StaticClass());
+
+	testPawn->accelerate();
+
+	return true;
+}
+
+DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAJetLocationCommand, int*, tickCount, int, tickLimit, FAutomationTestBase*, test);
+
+bool FCheckAJetLocationCommand::Update()
+{
+	if (GEditor->IsPlayingSessionInEditor())
+	{
+		UWorld* testWorld = GEditor->GetPIEWorldContext()->World();
+		AAcceleratingPawn* testPawn = Cast<AAcceleratingPawn, AActor>(UGameplayStatics::GetActorOfClass(testWorld, AAcceleratingPawn::StaticClass()));
+		if (testPawn)
+		{
+			float currentXLocation = testPawn->GetActorLocation().X;
+
+
+			if (currentXLocation > 0)//it would be better to align the ship first and then check against it's forward vector. We have to be careful of gravity in this test.
+			{
+				test->TestTrue(TEXT("The Jet X location should increase after an acceleration is added (after ticking)."), currentXLocation > 0);
+				testWorld->bDebugFrameStepExecution = true;
+				return true;
+			}
+			*tickCount = *tickCount + 1;
+
+			if ( (*tickCount) > tickLimit)
+			{
+				test->TestFalse(TEXT("Tick limit reached for this test. The Jet X Location never changed from zero."), *tickCount > tickLimit);
+				testWorld->bDebugFrameStepExecution = true;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAJetShouldMoveForwardWhenAcceleratedTest, "ProjectR.Unit.JetTests.ShouldMoveForwardWhenAccelerated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAJetShouldMoveForwardWhenAcceleratedTest::RunTest(const FString& Parameters)
+{
+	{
+		FString testWorldName = FString("/Game/Tests/TestMaps/VoidWorld");
+		
+		ADD_LATENT_AUTOMATION_COMMAND(FEditorLoadMap(testWorldName))
+
+		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
+
+		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAJetMakeItAccelerateCommand);
+		int* tickCount = new int{0};
+		int tickLimit = 3;
+		ADD_LATENT_AUTOMATION_COMMAND(FCheckAJetLocationCommand(tickCount, tickLimit, this));
+
+		ADD_LATENT_AUTOMATION_COMMAND(FEndPlayMapCommand);
+	}
+
+	return true;
+}
+
+
+
+
 
 #endif //WITH_DEV_AUTOMATION_TESTS
