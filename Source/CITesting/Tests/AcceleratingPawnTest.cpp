@@ -121,7 +121,7 @@ bool FAnAcceleratingPawnShouldHaveAStaticMeshAssignedTest::RunTest(const FString
 	{
 		AAcceleratingPawnMOCK* testPawn = NewObject<AAcceleratingPawnMOCK>();
 		
-		TestFalse(TEXT("The pawn shouldn't affect the navigation volume."), testPawn->hasAStaticMeshAssigned());
+		TestTrue(TEXT("The pawn should have default static mesh assigned."), testPawn->hasAStaticMeshAssigned());
 	}
 
 	return true;
