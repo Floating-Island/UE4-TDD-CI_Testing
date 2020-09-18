@@ -15,6 +15,9 @@ AAcceleratingPawn::AAcceleratingPawn()
 	meshComponent->SetSimulatePhysics(true);
 	meshComponent->SetEnableGravity(true);
 	meshComponent->SetCanEverAffectNavigation(false);
+
+	UStaticMesh* Mesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), NULL, TEXT("/Engine/EditorMeshes/ArcadeEditorSphere")));
+	meshComponent->SetStaticMesh(Mesh);
 }
 
 // Called when the game starts or when spawned
