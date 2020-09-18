@@ -11,7 +11,9 @@
 #include "Tests/AutomationEditorCommon.h"
 #include "Editor.h"
 #include "Kismet/GameplayStatics.h"
-
+//to be able to process inputs:
+#include "GameFramework/PlayerInput.h"
+#include "GameFramework/GameModeBase.h"
 
 
 
@@ -278,6 +280,64 @@ bool FAnAcceleratingPawnSpeedIncreasesWhenAcceleratesTest::RunTest(const FString
 	return true;
 }
 
+
+
+
+
+
+DEFINE_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnPressAccelerationKeyCommand);
+
+bool FSpawningAnAcceleratingPawnPressAccelerationKeyCommand::Update()
+{
+	if (!GEditor->IsPlayingSessionInEditor())//if not, everything would be made while the map is loading and the PIE is in progress.
+	{
+		return false;
+	}
+
+	UWorld* testWorld = GEditor->GetPIEWorldContext()->World();
+
+	AAcceleratingPawn* testPawn = testWorld->SpawnActor<AAcceleratingPawn>(AAcceleratingPawn::StaticClass());
+
+	AGameModeBase* testGameMode = testWorld->GetAuthGameMode();
+
+	testGameMode->SpawnPlayerFromSimulate(FVector(), FRotator());
+
+	
+	APlayerController* jetController = Cast<APlayerController,AActor>(testGameMode->GetGameInstance()->GetFirstLocalPlayerController(testWorld));
+
+	FName const accelerateActionName = FName(TEXT("AccelerateAction"));//in the editor, we are going to add a new action mapping inside Project settings -> Input
+	FKey accelerateKey = TArray<FInputActionKeyMapping>(jetController->PlayerInput->GetKeysForAction(accelerateActionName))[0].Key;//in the pawn class, we are going to add a player input with:
+    //	PlayerInputComponent->BindAction("AccelerateAction", IE_Pressed,this,  &AAcceleratingPawn::accelerate);
+	// PlayerInputComponent->BindAction("AccelerateAction", IE_Repeat,this,  &AAcceleratingPawn::accelerate);
+	//and in the constructor:
+	//AutoPossessPlayer = EAutoReceiveInput::Player0;//this should be changed when we start doing multiplayer. It won't work.
+	bool binput = jetController->InputKey(accelerateKey,EInputEvent::IE_Repeat,5.0f,false);
+
+	return true;
+}
+
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnAcceleratesWhenPressingAccelerationKeyTest, "Game.Unit.AcceleratingPawnTests.AcceleratesWhenPressingAccelerationKey", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnAcceleratesWhenPressingAccelerationKeyTest::RunTest(const FString& Parameters)
+{
+	{
+		FString testWorldName = FString("/Game/Tests/TestMaps/VoidWorld");
+		
+		ADD_LATENT_AUTOMATION_COMMAND(FEditorLoadMap(testWorldName))
+
+		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
+
+		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnPressAccelerationKeyCommand);
+		int* tickCount = new int{0};
+		int tickLimit = 3;
+		ADD_LATENT_AUTOMATION_COMMAND(FCheckAnAcceleratingPawnSpeedIncreaseCommand(tickCount, tickLimit, this));
+
+		ADD_LATENT_AUTOMATION_COMMAND(FEndPlayMapCommand);
+	}
+
+	return true;
+}
 
 
 
