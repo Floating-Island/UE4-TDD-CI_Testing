@@ -23,7 +23,7 @@ I assume you understand how Test-Driven Development (TDD) and Continuous Integra
 Added some tests to simulate accelerating a pawn and simulating key presses!!!
 This are inside the Tests folder of the project.
 These tests use a void map to simulate everything needed.
-Look into the commits to have a grasp of how the order is important to TDD (test first, implementation after).
+Look into the commits to have a grasp of how the order is important to TDD (test first, implementation after test).
 I think they'll be really useful and save you a lot of headaches, enjoy!!
 
 ## **Introduction**
