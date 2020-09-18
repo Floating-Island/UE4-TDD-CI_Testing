@@ -144,9 +144,9 @@ bool FAnAcceleratingPawnDefaultAccelerationIsGreaterThanZeroTest::RunTest(const 
 
 
 
-DEFINE_LATENT_AUTOMATION_COMMAND(FSpawningAJetMakeItAccelerateCommand);
+DEFINE_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnMakeItAccelerateCommand);
 
-bool FSpawningAJetMakeItAccelerateCommand::Update()
+bool FSpawningAnAcceleratingPawnMakeItAccelerateCommand::Update()
 {
 	if (!GEditor->IsPlayingSessionInEditor())//if not, everything would be made while the map is loading and the PIE is in progress.
 	{
@@ -162,9 +162,9 @@ bool FSpawningAJetMakeItAccelerateCommand::Update()
 	return true;
 }
 
-DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAJetLocationCommand, int*, tickCount, int, tickLimit, FAutomationTestBase*, test);
+DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAnAcceleratingPawnXLocationCommand, int*, tickCount, int, tickLimit, FAutomationTestBase*, test);
 
-bool FCheckAJetLocationCommand::Update()
+bool FCheckAnAcceleratingPawnXLocationCommand::Update()
 {
 	if (GEditor->IsPlayingSessionInEditor())
 	{
@@ -206,10 +206,10 @@ bool FAnAcceleratingPawnShouldMoveForwardWhenAcceleratedTest::RunTest(const FStr
 
 		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
 
-		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAJetMakeItAccelerateCommand);
+		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnMakeItAccelerateCommand);
 		int* tickCount = new int{0};
 		int tickLimit = 3;
-		ADD_LATENT_AUTOMATION_COMMAND(FCheckAJetLocationCommand(tickCount, tickLimit, this));
+		ADD_LATENT_AUTOMATION_COMMAND(FCheckAnAcceleratingPawnXLocationCommand(tickCount, tickLimit, this));
 
 		ADD_LATENT_AUTOMATION_COMMAND(FEndPlayMapCommand);
 	}
