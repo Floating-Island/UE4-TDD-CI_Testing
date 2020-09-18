@@ -221,4 +221,64 @@ bool FAnAcceleratingPawnShouldMoveForwardWhenAcceleratedTest::RunTest(const FStr
 
 
 
+
+DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAnAcceleratingPawnSpeedIncreaseCommand, int*, tickCount, int, tickLimit, FAutomationTestBase*, test);
+
+bool FCheckAnAcceleratingPawnSpeedIncreaseCommand::Update()
+{
+	if (GEditor->IsPlayingSessionInEditor())
+	{
+		UWorld* testWorld = GEditor->GetPIEWorldContext()->World();
+		AAcceleratingPawn* testPawn = Cast<AAcceleratingPawn, AActor>(UGameplayStatics::GetActorOfClass(testWorld, AAcceleratingPawn::StaticClass()));
+		if (testPawn)
+		{
+			float currentSpeed = testPawn->currentSpeed();
+
+
+			if (currentSpeed > 0)//it would be better to align the ship first and then check against it's forward vector. We have to be careful of gravity in this test.
+			{
+				test->TestTrue(TEXT("The pawn speed should increase after accelerating (after ticking)."), currentSpeed > 0);
+				testWorld->bDebugFrameStepExecution = true;
+				return true;
+			}
+
+			*tickCount = *tickCount + 1;
+
+			if ( (*tickCount) > tickLimit)
+			{
+				test->TestFalse(TEXT("Tick limit reached for this test. The pawn speed never changed from zero."), *tickCount > tickLimit);
+				testWorld->bDebugFrameStepExecution = true;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnSpeedIncreasesWhenAcceleratesTest, "Game.Unit.AcceleratingPawnTests.SpeedIncreasesWhenAccelerates", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnSpeedIncreasesWhenAcceleratesTest::RunTest(const FString& Parameters)
+{
+	{
+		FString testWorldName = FString("/Game/Tests/TestMaps/VoidWorld");
+		
+		ADD_LATENT_AUTOMATION_COMMAND(FEditorLoadMap(testWorldName))
+
+		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
+
+		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnMakeItAccelerateCommand);
+		int* tickCount = new int{0};
+		int tickLimit = 3;
+		ADD_LATENT_AUTOMATION_COMMAND(FCheckAnAcceleratingPawnSpeedIncreaseCommand(tickCount, tickLimit, this));
+
+		ADD_LATENT_AUTOMATION_COMMAND(FEndPlayMapCommand);
+	}
+
+	return true;
+}
+
+
+
+
 #endif //WITH_DEV_AUTOMATION_TESTS
