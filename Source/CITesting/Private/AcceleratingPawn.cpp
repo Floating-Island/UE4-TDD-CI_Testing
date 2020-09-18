@@ -14,6 +14,7 @@ AAcceleratingPawn::AAcceleratingPawn()
 
 	meshComponent->SetSimulatePhysics(true);
 	meshComponent->SetEnableGravity(true);
+	meshComponent->SetCanEverAffectNavigation(false);
 }
 
 // Called when the game starts or when spawned
