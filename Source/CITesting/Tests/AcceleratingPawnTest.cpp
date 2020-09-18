@@ -79,4 +79,19 @@ bool FAnAcceleratingPawnShouldHaveGravityEnabledTest::RunTest(const FString& Par
 	return true;
 }
 
+
+//uses a mock
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldntAffectNavigationVolumeTest, "Game.Unit.AcceleratingPawnTests.ShouldntAffectNavigationVolume", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnShouldntAffectNavigationVolumeTest::RunTest(const FString& Parameters)
+{
+	{
+		AAcceleratingPawnMOCK* testPawn = NewObject<AAcceleratingPawnMOCK>();
+		
+		TestFalse(TEXT("The pawn shouldn't affect the navigation volume."), testPawn->isAffectingNavigation());
+	}
+
+	return true;
+}
+
 #endif //WITH_DEV_AUTOMATION_TESTS
