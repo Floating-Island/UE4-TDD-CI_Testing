@@ -175,9 +175,9 @@ bool FCheckAJetLocationCommand::Update()
 			float currentXLocation = testPawn->GetActorLocation().X;
 
 
-			if (currentXLocation > 0)//it would be better to align the ship first and then check against it's forward vector. We have to be careful of gravity in this test.
+			if (currentXLocation > 0)
 			{
-				test->TestTrue(TEXT("The Jet X location should increase after an acceleration is added (after ticking)."), currentXLocation > 0);
+				test->TestTrue(TEXT("The pawn X location should increase after an acceleration is added (after ticking)."), currentXLocation > 0);
 				testWorld->bDebugFrameStepExecution = true;
 				return true;
 			}
@@ -185,7 +185,7 @@ bool FCheckAJetLocationCommand::Update()
 
 			if ( (*tickCount) > tickLimit)
 			{
-				test->TestFalse(TEXT("Tick limit reached for this test. The Jet X Location never changed from zero."), *tickCount > tickLimit);
+				test->TestFalse(TEXT("Tick limit reached for this test. The pawn X Location never changed from zero."), *tickCount > tickLimit);
 				testWorld->bDebugFrameStepExecution = true;
 				return true;
 			}
@@ -195,9 +195,9 @@ bool FCheckAJetLocationCommand::Update()
 }
 
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAJetShouldMoveForwardWhenAcceleratedTest, "ProjectR.Unit.JetTests.ShouldMoveForwardWhenAccelerated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldMoveForwardWhenAcceleratedTest, "Game.Unit.AcceleratingPawnTests.ShouldMoveForwardWhenAccelerated", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
-bool FAJetShouldMoveForwardWhenAcceleratedTest::RunTest(const FString& Parameters)
+bool FAnAcceleratingPawnShouldMoveForwardWhenAcceleratedTest::RunTest(const FString& Parameters)
 {
 	{
 		FString testWorldName = FString("/Game/Tests/TestMaps/VoidWorld");
