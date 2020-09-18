@@ -99,7 +99,7 @@ bool FAnAcceleratingPawnShouldntAffectNavigationVolumeTest::RunTest(const FStrin
 }
 
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldBeMovableTest, "ProjectR.Unit.AcceleratingPawnTests.ShouldBeMovable", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldBeMovableTest, "Game.Unit.AcceleratingPawnTests.ShouldBeMovable", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
 bool FAnAcceleratingPawnShouldBeMovableTest::RunTest(const FString& Parameters)
 {
