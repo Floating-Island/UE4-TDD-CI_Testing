@@ -3,6 +3,8 @@
 
 #include "AcceleratingPawn.h"
 
+#include "Components/InputComponent.h"
+
 // Sets default values
 AAcceleratingPawn::AAcceleratingPawn()
 {
