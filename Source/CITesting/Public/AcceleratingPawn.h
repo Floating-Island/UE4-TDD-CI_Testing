@@ -37,4 +37,6 @@ public:
 
 	void accelerate();
 
+	float currentSpeed();
+
 };

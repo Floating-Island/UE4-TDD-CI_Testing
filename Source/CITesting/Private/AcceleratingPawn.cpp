@@ -59,3 +59,8 @@ void AAcceleratingPawn::accelerate()
 	meshComponent->AddForce(forceToApply,NAME_None, true);
 }
 
+float AAcceleratingPawn::currentSpeed()
+{
+	return meshComponent->GetComponentVelocity().X;
+}
+
