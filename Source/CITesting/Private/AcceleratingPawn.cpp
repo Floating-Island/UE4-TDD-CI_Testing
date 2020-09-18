@@ -41,6 +41,9 @@ void AAcceleratingPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	PlayerInputComponent->BindAction("AccelerateAction", IE_Pressed,this,  &AAcceleratingPawn::accelerate);
+	PlayerInputComponent->BindAction("AccelerateAction", IE_Repeat,this,  &AAcceleratingPawn::accelerate);
+
 }
 
 bool AAcceleratingPawn::hasAStaticMesh()
