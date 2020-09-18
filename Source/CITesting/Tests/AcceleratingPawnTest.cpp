@@ -94,4 +94,18 @@ bool FAnAcceleratingPawnShouldntAffectNavigationVolumeTest::RunTest(const FStrin
 	return true;
 }
 
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldBeMovableTest, "ProjectR.Unit.AcceleratingPawnTests.ShouldBeMovable", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnShouldBeMovableTest::RunTest(const FString& Parameters)
+{
+	{
+		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
+		
+		TestTrue(TEXT("The pawn's root component should be movable."), testPawn->IsRootComponentMovable());
+	}
+
+	return true;
+}
+
 #endif //WITH_DEV_AUTOMATION_TESTS
