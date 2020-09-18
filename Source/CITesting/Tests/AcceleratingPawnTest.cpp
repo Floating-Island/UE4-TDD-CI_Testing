@@ -123,4 +123,16 @@ bool FAnAcceleratingPawnShouldHaveAStaticMeshAssignedTest::RunTest(const FString
 	return true;
 }
 
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnDefaultAccelerationIsGreaterThanZeroTest, "Game.Unit.AcceleratingPawnTests.DefaultAccelerationIsGreaterThanZero", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnDefaultAccelerationIsGreaterThanZeroTest::RunTest(const FString& Parameters)
+{
+	AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>(AAcceleratingPawn::StaticClass());
+
+	TestTrue(TEXT("A pawn's default acceleration should be bigger than zero."), testPawn->acceleration() > 0);
+	
+	return true;
+}
+
 #endif //WITH_DEV_AUTOMATION_TESTS
