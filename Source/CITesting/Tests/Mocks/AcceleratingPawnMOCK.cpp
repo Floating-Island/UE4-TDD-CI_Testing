@@ -7,3 +7,8 @@ bool AAcceleratingPawnMOCK::isMeshTheRootComponent()
 {
 	return (RootComponent == meshComponent)? true : false;
 }
+
+bool AAcceleratingPawnMOCK::hasGravityEnabled()
+{
+	return meshComponent->IsGravityEnabled();
+}

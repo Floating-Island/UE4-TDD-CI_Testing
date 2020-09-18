@@ -17,4 +17,6 @@ class CITESTING_API AAcceleratingPawnMOCK : public AAcceleratingPawn
 public:
 	
 	bool isMeshTheRootComponent();
+
+	bool hasGravityEnabled();
 };
