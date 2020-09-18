@@ -18,6 +18,18 @@ I didn't make anything special, I just read what others have done and adapted it
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works. If not, check the resources section, it's a nice place to start and you can try tests with this project.
 
+## **NEW: More Tests Added**
+
+Added some tests to simulate accelerating a pawn and simulating key presses!!!
+
+This are inside the Tests folder of the project.
+
+These tests use a void map to simulate everything needed.
+
+Look into the commits to have a grasp of how the order is important to TDD (test first, implementation after test).
+
+I think they'll be really useful and save you a lot of headaches, enjoy!!
+
 ## **Introduction**
 
 Unreal Engine provides a testing suite inside it's Automation Framework, but it's tedious (and consumes a lot of time) to write a test, build the project, open the editor, run the tests and see if they pass or fail.
