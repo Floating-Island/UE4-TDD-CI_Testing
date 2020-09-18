@@ -2,7 +2,7 @@
 
 Project Template to use on TDD and CI with Unreal Engine 4 on Windows.
 Feel free to use it.
-If you have any questions, feel free to ask me.
+If you have any questions, please let me know.
 
 
 ## **Requirements**
