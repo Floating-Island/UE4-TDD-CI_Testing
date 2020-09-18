@@ -46,3 +46,8 @@ bool AAcceleratingPawn::hasAStaticMesh()
 	return meshComponent? true : false;
 }
 
+float AAcceleratingPawn::acceleration()
+{
+	return accelerationValue;
+}
+

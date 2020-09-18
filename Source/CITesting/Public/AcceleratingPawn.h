@@ -31,4 +31,6 @@ public:
 
 	bool hasAStaticMesh();
 
+	float acceleration();
+
 };
