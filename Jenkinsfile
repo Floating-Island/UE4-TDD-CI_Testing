@@ -129,15 +129,17 @@ def transformReport( String jsonContent ) {
     builder.mkp.xmlDeclaration version: "1.0", encoding: "utf-8"
 
     builder.testsuite( tests: parsedReport.succeeded + parsedReport.failed, failures: parsedReport.failed, time: parsedReport.totalDuration ) {
-        for ( test in parsedReport.tests ) {
-            builder.testcase( name: test.testDisplayName, classname: test.fullTestPath, status: test.state ) {
-                if(test.state == "Fail") {
-                  for ( entry in test.entries ) { 
-                    builder.failure( message: entry.event.message, type: entry.event.type, entry.filename + " " + entry.lineNumber )
-                  }
-                }
+      for ( test in parsedReport.tests ) {
+        builder.testcase( name: test.testDisplayName, classname: test.fullTestPath, status: test.state ) {
+          if(test.state == "Fail") {
+            for ( entry in test.entries ) { 
+              if(entry.event.type == "Error") {
+                builder.failure( message: entry.event.message, type: entry.event.type, entry.filename + " " + entry.lineNumber )
+              }
             }
+          }
         }
+      }
     } 
 
     return jUnitReport.toString()
