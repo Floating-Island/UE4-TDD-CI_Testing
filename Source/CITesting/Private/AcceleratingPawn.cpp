@@ -18,6 +18,8 @@ AAcceleratingPawn::AAcceleratingPawn()
 
 	UStaticMesh* Mesh = Cast<UStaticMesh>(StaticLoadObject(UStaticMesh::StaticClass(), NULL, TEXT("/Engine/EditorMeshes/ArcadeEditorSphere")));
 	meshComponent->SetStaticMesh(Mesh);
+
+	accelerationValue = 5000.f;
 }
 
 // Called when the game starts or when spawned
