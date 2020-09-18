@@ -11,6 +11,9 @@ AAcceleratingPawn::AAcceleratingPawn()
 
 	meshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh Component"));
 	RootComponent = meshComponent;
+
+	meshComponent->SetSimulatePhysics(true);
+	meshComponent->SetEnableGravity(true);
 }
 
 // Called when the game starts or when spawned
