@@ -21,4 +21,6 @@ public:
 	bool hasGravityEnabled();
 
 	bool isAffectingNavigation();
+
+	bool hasAStaticMeshAssigned();
 };

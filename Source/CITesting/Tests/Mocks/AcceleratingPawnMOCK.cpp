@@ -17,3 +17,8 @@ bool AAcceleratingPawnMOCK::isAffectingNavigation()
 {
 	return meshComponent->CanEverAffectNavigation();
 }
+
+bool AAcceleratingPawnMOCK::hasAStaticMeshAssigned()
+{
+	return meshComponent->GetStaticMesh()? true : false;
+}
