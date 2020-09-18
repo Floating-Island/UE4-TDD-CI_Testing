@@ -20,6 +20,8 @@ AAcceleratingPawn::AAcceleratingPawn()
 	meshComponent->SetStaticMesh(Mesh);
 
 	accelerationValue = 5000.f;
+
+	AutoPossessPlayer = EAutoReceiveInput::Player0;//this should be changed when we start doing multiplayer. It won't work.
 }
 
 // Called when the game starts or when spawned
