@@ -12,3 +12,8 @@ bool AAcceleratingPawnMOCK::hasGravityEnabled()
 {
 	return meshComponent->IsGravityEnabled();
 }
+
+bool AAcceleratingPawnMOCK::isAffectingNavigation()
+{
+	return meshComponent->CanEverAffectNavigation();
+}

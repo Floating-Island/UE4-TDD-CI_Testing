@@ -19,4 +19,6 @@ public:
 	bool isMeshTheRootComponent();
 
 	bool hasGravityEnabled();
+
+	bool isAffectingNavigation();
 };
