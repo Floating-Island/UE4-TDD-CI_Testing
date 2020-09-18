@@ -3,6 +3,7 @@
 
 #include "AcceleratingPawn.h"
 
+#include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
 
 // Sets default values
