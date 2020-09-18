@@ -43,7 +43,7 @@ bool FAnAcceleratingPawnShouldHaveAStaticMeshTest::RunTest(const FString& Parame
 	{
 		AAcceleratingPawn* testPawn = NewObject<AAcceleratingPawn>();
 		
-		TestTrue(TEXT("The Jet static mesh shouldn't be null if it has one."), testPawn->hasAStaticMesh());
+		TestTrue(TEXT("The pawn static mesh shouldn't be null if it has one."), testPawn->hasAStaticMesh());
 	}
 
 	return true;
@@ -58,7 +58,22 @@ bool FAnAcceleratingPawnMeshShouldBeTheRootComponentTest::RunTest(const FString&
 	{
 		AAcceleratingPawnMOCK* testPawnMock = NewObject<AAcceleratingPawnMOCK>();
 		
-		TestTrue(TEXT("The Jet static mesh should be the root component."), testPawnMock->isMeshTheRootComponent());
+		TestTrue(TEXT("The pawn static mesh should be the root component."), testPawnMock->isMeshTheRootComponent());
+	}
+
+	return true;
+}
+
+
+//uses a mock
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FAnAcceleratingPawnShouldHaveGravityEnabledTest, "Game.Unit.AcceleratingPawnTests.ShouldHaveGravityEnabled", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+bool FAnAcceleratingPawnShouldHaveGravityEnabledTest::RunTest(const FString& Parameters)
+{
+	{
+		AAcceleratingPawnMOCK* testPawn = NewObject<AAcceleratingPawnMOCK>();
+		
+		TestTrue(TEXT("The pawn should have gravity enabled."), testPawn->hasGravityEnabled());
 	}
 
 	return true;
