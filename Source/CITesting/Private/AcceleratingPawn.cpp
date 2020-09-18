@@ -53,3 +53,9 @@ float AAcceleratingPawn::acceleration()
 	return accelerationValue;
 }
 
+void AAcceleratingPawn::accelerate()
+{
+	FVector forceToApply = FVector(acceleration(), 0, 0);
+	meshComponent->AddForce(forceToApply,NAME_None, true);
+}
+

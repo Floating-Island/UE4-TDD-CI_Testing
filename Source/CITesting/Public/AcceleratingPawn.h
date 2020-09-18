@@ -35,4 +35,6 @@ public:
 
 	float acceleration();
 
+	void accelerate();
+
 };
