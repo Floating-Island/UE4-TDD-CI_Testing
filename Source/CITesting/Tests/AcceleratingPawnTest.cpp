@@ -164,7 +164,7 @@ bool FSpawningAnAcceleratingPawnMakeItAccelerateCommand::Update()
 	return true;
 }
 
-DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAnAcceleratingPawnXLocationCommand, int*, tickCount, int, tickLimit, FAutomationTestBase*, test);
+DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAnAcceleratingPawnXLocationCommand, int, tickCount, int, tickLimit, FAutomationTestBase*, test);
 
 bool FCheckAnAcceleratingPawnXLocationCommand::Update()
 {
@@ -183,11 +183,11 @@ bool FCheckAnAcceleratingPawnXLocationCommand::Update()
 				testWorld->bDebugFrameStepExecution = true;
 				return true;
 			}
-			*tickCount = *tickCount + 1;
+			++tickCount;
 
-			if ( (*tickCount) > tickLimit)
+			if ( tickCount > tickLimit)
 			{
-				test->TestFalse(TEXT("Tick limit reached for this test. The pawn X Location never changed from zero."), *tickCount > tickLimit);
+				test->TestFalse(TEXT("Tick limit reached for this test. The pawn X Location never changed from zero."), tickCount > tickLimit);
 				testWorld->bDebugFrameStepExecution = true;
 				return true;
 			}
@@ -209,7 +209,7 @@ bool FAnAcceleratingPawnShouldMoveForwardWhenAcceleratedTest::RunTest(const FStr
 		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
 
 		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnMakeItAccelerateCommand);
-		int* tickCount = new int{0};
+		int tickCount = 0;
 		int tickLimit = 3;
 		ADD_LATENT_AUTOMATION_COMMAND(FCheckAnAcceleratingPawnXLocationCommand(tickCount, tickLimit, this));
 
@@ -224,7 +224,7 @@ bool FAnAcceleratingPawnShouldMoveForwardWhenAcceleratedTest::RunTest(const FStr
 
 
 
-DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAnAcceleratingPawnSpeedIncreaseCommand, int*, tickCount, int, tickLimit, FAutomationTestBase*, test);
+DEFINE_LATENT_AUTOMATION_COMMAND_THREE_PARAMETER(FCheckAnAcceleratingPawnSpeedIncreaseCommand, int, tickCount, int, tickLimit, FAutomationTestBase*, test);
 
 bool FCheckAnAcceleratingPawnSpeedIncreaseCommand::Update()
 {
@@ -244,11 +244,11 @@ bool FCheckAnAcceleratingPawnSpeedIncreaseCommand::Update()
 				return true;
 			}
 
-			*tickCount = *tickCount + 1;
+			++tickCount;
 
-			if ( (*tickCount) > tickLimit)
+			if ( tickCount > tickLimit)
 			{
-				test->TestFalse(TEXT("Tick limit reached for this test. The pawn speed never changed from zero."), *tickCount > tickLimit);
+				test->TestFalse(TEXT("Tick limit reached for this test. The pawn speed never changed from zero."), tickCount > tickLimit);
 				testWorld->bDebugFrameStepExecution = true;
 				return true;
 			}
@@ -270,7 +270,7 @@ bool FAnAcceleratingPawnSpeedIncreasesWhenAcceleratesTest::RunTest(const FString
 		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
 
 		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnMakeItAccelerateCommand);
-		int* tickCount = new int{0};
+		int tickCount = 0;
 		int tickLimit = 3;
 		ADD_LATENT_AUTOMATION_COMMAND(FCheckAnAcceleratingPawnSpeedIncreaseCommand(tickCount, tickLimit, this));
 
@@ -329,7 +329,7 @@ bool FAnAcceleratingPawnAcceleratesWhenPressingAccelerationKeyTest::RunTest(cons
 		ADD_LATENT_AUTOMATION_COMMAND(FStartPIECommand(true));
 
 		ADD_LATENT_AUTOMATION_COMMAND(FSpawningAnAcceleratingPawnPressAccelerationKeyCommand);
-		int* tickCount = new int{0};
+		int tickCount = 0;
 		int tickLimit = 3;
 		ADD_LATENT_AUTOMATION_COMMAND(FCheckAnAcceleratingPawnSpeedIncreaseCommand(tickCount, tickLimit, this));
 
