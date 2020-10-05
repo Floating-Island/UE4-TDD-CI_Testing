@@ -55,7 +55,7 @@ Inside that pipeline we're going to declare how to build the project, run our te
 
 Looks easy, right? The only problem is understanding that Jenkins is meant to be used in a server, which means that it (and every application that the pipeline invokes) has to work in headless mode. Also, no application invoked has to have any input allowed.
 
-This problem is a source headaches in the beginning, but you'll become accustomed to it.
+This problem is a source of headaches in the beginning, but you'll become accustomed to it.
 
 ## **First Time Steps**
 
