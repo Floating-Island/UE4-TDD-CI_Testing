@@ -17,9 +17,24 @@ If you have any questions, please let me know.
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works. If not, check the resources section, it's a nice place to start and you can try tests with this project.
 
-## **NEW: More Tests Added**
+## **NEW: Do you want even MORE tests??**
 
-Added some tests to simulate accelerating a pawn and simulating key presses!!!
+Since before creating this tutorial I've been working on my final project for university.
+
+My project was about a simple racing videogame using TDD and CI as the environment.
+
+I made it public so others will be able to have even more implementations of tests with TDD (over 340!!).
+It also has a slightly modified version of this project's jenkinsfile, replication tests over LAN and some helpful classes to aid on the tests.
+
+Also, it has the logical view and a report (currently in Spanish but I'll upload the English version soon).
+
+I hope this really helps in your projects! Enjoy!!
+
+https://github.com/Floating-Island/ProjectR
+
+## **Initial Tests**
+
+Inside the repository, there're some tests to simulate accelerating a pawn and simulating key presses!!!
 
 This are inside the Tests folder of the project.
 
