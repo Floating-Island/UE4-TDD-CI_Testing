@@ -20,7 +20,7 @@ If you have any questions, please let me know.
 
 I assume you understand how Test-Driven Development (TDD) and Continuous Integration (CI) works. If not, check the resources section, it's a nice place to start and you can try tests with this project.
 
-## **NEW: Do you want even MORE tests??**
+## **Would you like even MORE tests??**
 
 Since before creating this tutorial I've been working on my final project for university.
 
