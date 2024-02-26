@@ -2,7 +2,7 @@
 
 Project Template to use on TDD and CI with Unreal Engine 4 on Windows.
 
-This is the repository from the article  [Jenkins, CI and Test-Driven Development](https://ue4community.wiki/jenkins-ci-amp-test-driven-development-6912tx0c)
+This is the repository from the article  [Jenkins, CI and Test-Driven Development](https://unrealcommunity.wiki/jenkins-ci-amp-test-driven-development-6912tx0c)
 
 Feel free to use it.
 If you have any questions, please let me know.
